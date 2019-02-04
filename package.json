@@ -26,5 +26,9 @@
     "express-admin": "^1.4.1",
     "nodemon": "^1.18.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "^10.14.1",
+    "npm": "^6.4.1"
+  }
 }
