@@ -25,6 +25,19 @@ xAdmin.init(config, function (err, admin) {
     next();
   });
 
+  app.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM mentors');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
   app.get('/mentors', (req, res, next) => {
     db.query('SELECT * FROM mentors', (err, dbRes) => {
       if (err) {
@@ -44,7 +57,7 @@ xAdmin.init(config, function (err, admin) {
   });
 
   app.set('port', process.env.PORT || 3000)
-  
+
   app.listen(process.env.PORT || 3000, () => {
       console.log("Server running on port 3000");
   });
