@@ -25,26 +25,14 @@ xAdmin.init(config, function (err, admin) {
     next();
   });
 
-  // added according to this: https://devcenter.heroku.com/articles/getting-started-with-nodejs#provision-a-database
-  app.get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM mentors');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
 
   app.get('/mentors', (req, res, next) => {
     db.query('SELECT * FROM mentors', (err, dbRes) => {
       if (err) {
         return next(err)
       }
-      res.json(dbRes.rows)
+      res.render('pages/mentors', dbRes)
+      // res.json(dbRes.rows)
     })
   });
 
