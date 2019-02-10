@@ -4,6 +4,8 @@ var express = require("express");
 var xAdmin = require('express-admin');
 const db = require('./db')
 
+console.log("db", db)
+
 var config = {
   dpath: './express-admin-config/',
   config: require('./express-admin-config/config.json'),
