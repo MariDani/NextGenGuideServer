@@ -1,5 +1,7 @@
 const pg = require('pg');
 
+console.log(process.env.DATABASE_URL)
+
 const client = new pg.Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
@@ -9,6 +11,8 @@ const client = new pg.Client({
   // database: process.env.DB_NAME,
   // port: 5432,
 })
+
+console.log("client", client)
 
 client.connect();
 
