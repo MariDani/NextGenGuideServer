@@ -9,6 +9,8 @@ const client = new pg.Client({
   // database: process.env.DB_NAME,
   // port: 5432,
 })
+console.log("Database URL:");
+console.log(process.env.DATABASE_URL);
 
 client.connect();
 
