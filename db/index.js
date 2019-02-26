@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+  // connectionString: process.env.DATABASE_URL,
   ssl: true,
   host: "ec2-54-228-224-37.eu-west-1.compute.amazonaws.com",
   username: "qqrvtrdyciuoqa",
@@ -9,7 +9,7 @@ const client = new pg.Client({
   database: "de2l7jhij3adpn",
   port: 5432,
 })
-console.log(":");
+console.log("Env:");
 console.log(process.env);
 
 client.connect();
