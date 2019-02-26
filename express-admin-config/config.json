@@ -1,8 +1,10 @@
 {
     "pg": {
-        "database": "next-gen-guide-development",
-        "user": "marianadanielova",
-        "password": "1",
+        "database": "d4t2nf9mkd6gij",
+        "user": "djefulzgiienox",
+        "host": "ec2-46-137-170-51.eu-west-1.compute.amazonaws.com",
+        "port": 5432,
+        "password": "d2ff11216c21ea5ac36f9811b2f2fb48b38b3c1718580a00093d81654ae44816",
         "schema": "public"
     },
     "server": {

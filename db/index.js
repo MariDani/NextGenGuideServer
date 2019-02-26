@@ -1,18 +1,19 @@
 const pg = require('pg');
 
-const client = new pg.Client({
-  // connectionString: process.env.DATABASE_URL,
-  ssl: true,
-  host: "ec2-54-228-224-37.eu-west-1.compute.amazonaws.com",
-  user: "qqrvtrdyciuoqa",
-  password: "0018497b496e77a8835f995149204e890826c0e31a7ce4c9b72a66fe590e065a",    
-  database: "de2l7jhij3adpn",
-  port: 5432,
-})
-console.log("Env:");
-console.log(process.env);
+db = process.env.DATABASE_URL
+client = new pg.Client({ connectionString: "postgres://djefulzgiienox:d2ff11216c21ea5ac36f9811b2f2fb48b38b3c1718580a00093d81654ae44816@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4t2nf9mkd6gij", ssl: true})
 
-client.connect();
+console.log(client);
+
+client.connect((err) => {
+  if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('connected')
+  }
+})
+
+console.log(client);
 
 module.exports = {
   query: (text, params, callback) => {
