@@ -3,14 +3,14 @@ const pg = require('pg');
 const client = new pg.Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
-  // host: process.env.DB_HOST,
-  // username: process.env.DB_USER,
-  // password: process.env.DB_PASS,    
-  // database: process.env.DB_NAME,
-  // port: 5432,
+  host: "ec2-54-228-224-37.eu-west-1.compute.amazonaws.com",
+  username: "qqrvtrdyciuoqa",
+  password: "0018497b496e77a8835f995149204e890826c0e31a7ce4c9b72a66fe590e065a",    
+  database: "de2l7jhij3adpn",
+  port: 5432,
 })
-console.log("Database URL:");
-console.log(process.env.DATABASE_URL);
+console.log(":");
+console.log(process.env);
 
 client.connect();
 
