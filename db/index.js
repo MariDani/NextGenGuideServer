@@ -1,9 +1,27 @@
 const pg = require('pg');
 
+var prod = process.env.NODE_ENV === 'production';
 db = process.env.DATABASE_URL
-client = new pg.Client({ connectionString: "postgres://djefulzgiienox:d2ff11216c21ea5ac36f9811b2f2fb48b38b3c1718580a00093d81654ae44816@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4t2nf9mkd6gij", ssl: true})
 
-console.log(client);
+console.log("NODE_ENV:");
+console.log(process.env.NODE_ENV);
+
+let client;
+
+if (prod) {
+  client = new pg.Client({
+    connectionString: db,
+    ssl: true
+  })
+} else {
+  client = new pg.Client({
+    host: process.env.DB_HOST,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: 5432
+  })
+}
 
 client.connect((err) => {
   if (err) {
@@ -12,8 +30,6 @@ client.connect((err) => {
     console.log('connected')
   }
 })
-
-console.log(client);
 
 module.exports = {
   query: (text, params, callback) => {

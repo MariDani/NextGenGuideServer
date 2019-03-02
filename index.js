@@ -13,9 +13,7 @@ var config = {
 };
 
 xAdmin.init(config, function (err, admin) {
-  console.log("zacina INIT");
   var app = express();
-  console.log("mame APP");
 
   if (err) return console.log(err);
   app.use('/admin', admin);
@@ -27,7 +25,6 @@ xAdmin.init(config, function (err, admin) {
     next();
   });
 
-  console.log("Pred GET");
   app.get('/mentors', (req, res, next) => {
     db.query('SELECT * FROM mentors', (err, dbRes) => {
       if (err) {
