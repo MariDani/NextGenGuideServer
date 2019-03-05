@@ -32,7 +32,8 @@ CREATE TABLE mentors (first_name varchar(40),
   previous_company varchar(40),
   previous_country varchar(40),
   image_url varchar(40),
-  email varchar(40));
+  email varchar(40),
+  description varchar(1200));
 
 CREATE TABLE mentees (first_name varchar(40),
   id SERIAL PRIMARY KEY,
@@ -65,11 +66,13 @@ INSERT INTO mentors VALUES ('Zuzana',
   'IT',
   'Software Developer',
   'MSD',
+  'Ceska republika',
   'Software Developer',
   'Leedfeader',
   'Finland',
   'www.image.com/url.jpg',
-  'zuzana@gmail.com');
+  'zuzana@gmail.com',
+  'Zuzana works as a programmer currently in pharmacological industry. She codes in Javascript both frontend and backend. While she started studying Software Engineering at Unicorn College, she didn’t finish it and considers herself as self-learner. In fact, before she started with coding, Zuzana studied Sociology at Charles University. During her studies she also completed a one year exchange program at the Gothenburg University in Sweden. When she was attending high school, her dream was to be a teacher. She enjoys explaining complex problems in a simple way. She was involved in teaching a web development as a volunteer for Czechitas (Czech NGO) for a very long time. Zuzana is an everlasting student, who believes it is never too late to learn new skills or to completely change a career, which she demonstrated by switching from Sociology to Software Development.');
 
 INSERT INTO mentees VALUES ('John',
   DEFAULT,
