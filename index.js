@@ -69,6 +69,15 @@ xAdmin.init(config, function (err, admin) {
     })
   });
 
+  app.get('/mentors/:id', (req, res, next) => {
+    db.query(`SELECT * FROM mentors where id = ${req.params.id}`, (err, dbRes) => {
+      if (err) {
+        return next(err)
+      }
+      res.json(dbRes.rows)
+    })
+  });
+
   app.get('/mentees', (req, res, next) => {
     db.query('SELECT * FROM mentees', (err, dbRes) => {
       if (err) {
