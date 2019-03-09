@@ -3,9 +3,14 @@ require('dotenv').config()
 var express = require("express");
 var xAdmin = require('express-admin');
 const db = require('./db')
+var cors = require('cors')
 
 var prod = process.env.NODE_ENV === 'production';
 let pgConfig;
+
+var corsOptions = {
+  origin: ["http://nextgenguide.com", "0.0.0.0:2015"]
+}
 
 if (prod) {
    pgConfig =  {
@@ -49,16 +54,10 @@ var config = {
 xAdmin.init(config, function (err, admin) {
   var app = express();
 
+  app.use(cors(corsOptions));
+
   if (err) return console.log(err);
   app.use('/admin', admin);
-
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Origin", "http://localhost:2015");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Credentials", false);
-    next();
-  });
 
   app.get('/mentors', (req, res, next) => {
     db.query('SELECT * FROM mentors', (err, dbRes) => {
