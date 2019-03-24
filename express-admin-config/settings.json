@@ -445,11 +445,27 @@
                 "control": {
                     "text": true
                 },
-                "type": "varchar(40)",
+                "type": "varchar(100)",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {
                     "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "description",
+                "verbose": "description",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(1200)",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
                 },
                 "editview": {
                     "show": true
@@ -584,7 +600,7 @@
                     "show": true
                 },
                 "editview": {
-                    "show": true
+                    "show": false
                 }
             }
         ],
