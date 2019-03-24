@@ -31,7 +31,7 @@ CREATE TABLE mentors (first_name varchar(40),
   previous_role varchar(40),
   previous_company varchar(40),
   previous_country varchar(40),
-  image_url varchar(100),
+  image_url varchar(500),
   email varchar(40),
   description varchar(1200));
 

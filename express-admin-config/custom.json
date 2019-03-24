@@ -1,1 +1,9 @@
-{}
+{
+  "my-styles": {
+     "public": {
+        "external": {
+            "css": "https://dl.dropbox.com/s/soj1er52y4apfx7/admin-style.css?dl=0"
+        }
+    }
+  }
+}
