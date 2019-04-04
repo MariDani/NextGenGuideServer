@@ -9,7 +9,7 @@ var prod = process.env.NODE_ENV === 'production';
 let pgConfig;
 
 var corsOptions = {
-  origin: ["http://www.nextgenguide.com", "0.0.0.0:2015"],
+  origin: ["http://www.nextgenguide.com", "http://localhost:2015"],
   credentials: true
 }
 
