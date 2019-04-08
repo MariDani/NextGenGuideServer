@@ -4,6 +4,7 @@ var express = require("express");
 var xAdmin = require('express-admin');
 const db = require('./db')
 var cors = require('cors')
+const bodyParser = require('body-parser');
 
 var prod = process.env.NODE_ENV === 'production';
 let pgConfig;
@@ -56,18 +57,53 @@ xAdmin.init(config, function (err, admin) {
   var app = express();
 
   app.use(cors(corsOptions));
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
 
   if (err) return console.log(err);
   app.use('/admin', admin);
 
   app.get('/mentors', (req, res, next) => {
-    db.query('SELECT * FROM mentors', (err, dbRes) => {
+    let country = req.query.country;
+    let industry = req.query.industry;
+    let program = req.query.program;
+
+    let conditions = [];
+
+    if (country) {
+      conditions.push(`
+      (country = '${country}' or
+      university_1_country = '${country}' or
+      university_2_country = '${country}' or
+      university_3_country = '${country}' or
+      previous_country = '${country}')`)
+    }
+
+    if (industry) {
+      conditions.push(`
+        (working_industry = '${industry}' )`)
+    }
+
+    if (program) {
+      conditions.push(`
+      (university_1_program = '${program}' or
+      university_2_program = '${program}' or
+      university_3_program = '${program}')`)
+    }
+
+    let query = "SELECT * FROM mentors";
+
+    if (conditions.length > 0) {
+      query = query + " WHERE " + conditions.join(" AND ");
+    }
+
+    db.query(query, (err, dbRes) => {
       if (err) {
         return next(err)
       }
-      res.json(dbRes.rows)
-    })
-  });
+      res.json(dbRes.rows);
+     })
+  })
 
   app.get('/mentors/:id', (req, res, next) => {
     db.query(`SELECT * FROM mentors where id = ${req.params.id}`, (err, dbRes) => {
