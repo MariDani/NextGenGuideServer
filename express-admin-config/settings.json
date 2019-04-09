@@ -470,6 +470,22 @@
                 "editview": {
                     "show": true
                 }
+            },
+            {
+                "name": "previous_industry",
+                "verbose": "previous_industry",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(40)",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
             }
         ],
         "mainview": {

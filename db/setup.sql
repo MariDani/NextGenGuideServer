@@ -33,7 +33,8 @@ CREATE TABLE mentors (first_name varchar(40),
   previous_country varchar(40),
   image_url varchar(500),
   email varchar(40),
-  description varchar(1200));
+  description varchar(1200),
+  previous_industry varchar(40));
 
 CREATE TABLE mentees (first_name varchar(40),
   id SERIAL PRIMARY KEY,
@@ -72,7 +73,8 @@ INSERT INTO mentors VALUES ('Zuzana',
   'Finland',
   'https://drive.google.com/uc?id=1Vu2w7yZQXHWvL6-zrMmATT6v2kf_1mU9',
   'zuzana@gmail.com',
-  'Zuzana works as a programmer currently in pharmacological industry. She codes in Javascript both frontend and backend. While she started studying Software Engineering at Unicorn College, she didn’t finish it and considers herself as self-learner. In fact, before she started with coding, Zuzana studied Sociology at Charles University. During her studies she also completed a one year exchange program at the Gothenburg University in Sweden. When she was attending high school, her dream was to be a teacher. She enjoys explaining complex problems in a simple way. She was involved in teaching a web development as a volunteer for Czechitas (Czech NGO) for a very long time. Zuzana is an everlasting student, who believes it is never too late to learn new skills or to completely change a career, which she demonstrated by switching from Sociology to Software Development.');
+  'Zuzana works as a programmer currently in pharmacological industry. She codes in Javascript both frontend and backend. While she started studying Software Engineering at Unicorn College, she didn’t finish it and considers herself as self-learner. In fact, before she started with coding, Zuzana studied Sociology at Charles University. During her studies she also completed a one year exchange program at the Gothenburg University in Sweden. When she was attending high school, her dream was to be a teacher. She enjoys explaining complex problems in a simple way. She was involved in teaching a web development as a volunteer for Czechitas (Czech NGO) for a very long time. Zuzana is an everlasting student, who believes it is never too late to learn new skills or to completely change a career, which she demonstrated by switching from Sociology to Software Development.'),
+  'IT';
 
 -- Insert some other values
 INSERT INTO mentors VALUES ('Mariana',
@@ -103,7 +105,8 @@ INSERT INTO mentors VALUES ('Mariana',
   'Czech republic',
   'https://drive.google.com/uc?id=1ye45ZweZr0ib5q1FGLcgWU-iMNIPpOGN',
   'mariana@gmail.com',
-  'Mariana is a graduate of a bachelor degree in Cartography and Geography at Charles University in Prague and of an international Cartography Master Program held by technical universities in Munich, Vienna and Dresden. After graduation, Mariana worked three years for GIS (Geographic Information System) company AccuEarth as a Technical Director. She led the entire technical department and was responsible for the quality enhancement of GIS products (i.e. satellite imagery). In 2017 Mariana started working for European Laser Research Facility ELI Beamlines. Besides developing custom visualization tools, she creates user friendly visual outputs from big data produced by theoretical physicists. When she was a little girl, she hoped not to end up in Science like a half of her family did. But as it turns out, she happily works for laser research facility now, even though she hardly knows how lasers work.');
+  'Mariana is a graduate of a bachelor degree in Cartography and Geography at Charles University in Prague and of an international Cartography Master Program held by technical universities in Munich, Vienna and Dresden. After graduation, Mariana worked three years for GIS (Geographic Information System) company AccuEarth as a Technical Director. She led the entire technical department and was responsible for the quality enhancement of GIS products (i.e. satellite imagery). In 2017 Mariana started working for European Laser Research Facility ELI Beamlines. Besides developing custom visualization tools, she creates user friendly visual outputs from big data produced by theoretical physicists. When she was a little girl, she hoped not to end up in Science like a half of her family did. But as it turns out, she happily works for laser research facility now, even though she hardly knows how lasers work.'),
+  'GIS';
 
 
 INSERT INTO mentees VALUES ('John',
