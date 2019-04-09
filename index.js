@@ -123,6 +123,10 @@ xAdmin.init(config, function (err, admin) {
     })
   });
 
+  app.get('/health', (req, res, next) => {
+    res.json("NXTGN SERVER UP & RUNNING :)")
+  });
+
   app.set('port', process.env.PORT || 3000)
 
   app.listen(process.env.PORT || 3000, "0.0.0.0", () => {
